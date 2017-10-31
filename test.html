@@ -28,7 +28,7 @@
       var camera, scene, renderer;
       var ambientLight, light;
       var cameraControls;
-      var mesh1;
+      var mesh;
       
       var wireMaterial, flatMaterial;
       
@@ -39,12 +39,19 @@
       function init() {
         
         //orthographic camera
+        /*
         camera = new THREE.OrthographicCamera(window.innerWidth/-2, window.innerWidth/2, window.innerHeight/2, window.innerHeight/-2, 1, 1000);
+        camera.position.x = 200;
+        camera.position.y = 200;
+        camera.position.z = 200;
+        */
         
         //perspective camera
-        //camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1, 1000);
         
-        camera.position.z = 400;
+        camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 5000);
+        camera.position.x = 1000;
+        camera.position.y = 1000;
+        camera.position.z = 1000;
         
         //lights
         ambientLight = new THREE.AmbientLight(0x333333);
@@ -70,6 +77,10 @@
         //controls
         cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
         cameraControls.addEventListener('change', render);
+        cameraControls.minDistance = 1000;
+        cameraControls.maxDistance = 2000;
+        cameraControls.minPolarAngle = Math.PI/4;
+        cameraControls.maxPolarAngle = Math.PI/2;
         
         //scene
         scene = new THREE.Scene();
@@ -84,7 +95,8 @@
 				wireMaterial = new THREE.MeshBasicMaterial( { color: 0xFFFFFF, wireframe: true } ) ;
         flatMaterial = new THREE.MeshPhongMaterial( { color: materialColor, specular: 0x000000, flatShading: true, side: THREE.DoubleSide } );
         
-        createBox(100,200,300);
+        //createBox from input width, height, depth
+        mesh = createBox(16*12,38*12,50*12);
                 
       }
       
@@ -101,13 +113,16 @@
         
         requestAnimationFrame(animate);
         
-        /*
-        mesh.rotation.x += 0.005;
-        mesh.rotation.y += 0.01;
-        */
+        
+        //mesh.rotation.x += 0.01;
+        //mesh.rotation.y += 0.01;
+        //mesh.position.x += 1;
+        //mesh.position.y += 1;
+        
         
         renderer.render(scene, camera);
       }
+      
       
       function render(){
       	
@@ -120,6 +135,11 @@
         var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({color:0x4a4a4a}));
         scene.add(mesh);
         scene.add(line);
+        return mesh;
+      }
+      
+      function createStreet(){
+        
       }
       
     </script>
