@@ -28,7 +28,7 @@
       var camera, scene, renderer;
       var ambientLight, light;
       var cameraControls;
-      var mesh, mesh1;
+      var mesh1;
       
       var wireMaterial, flatMaterial;
       
@@ -84,13 +84,7 @@
 				wireMaterial = new THREE.MeshBasicMaterial( { color: 0xFFFFFF, wireframe: true } ) ;
         flatMaterial = new THREE.MeshPhongMaterial( { color: materialColor, specular: 0x000000, flatShading: true, side: THREE.DoubleSide } );
         
-        var geometry = new THREE.BoxBufferGeometry(200, 200, 200);
-        
-        mesh = new THREE.Mesh(geometry, flatMaterial);
-        scene.add(mesh);
-        var edges = new THREE.EdgesGeometry(geometry);
-        var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({color:0xffffff}));
-        scene.add(line);
+        createBox(100,200,300);
                 
       }
       
@@ -116,7 +110,16 @@
       }
       
       function render(){
+      	
+      }
       
+      function createBox(wide, deep, high){
+        var geometry = new THREE.BoxBufferGeometry(wide, deep, high);
+        var edges = new THREE.EdgesGeometry(geometry);
+        var mesh = new THREE.Mesh(geometry, flatMaterial);
+        var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({color:0x4a4a4a}));
+        scene.add(mesh);
+        scene.add(line);
       }
       
     </script>
