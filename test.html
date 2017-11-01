@@ -29,6 +29,7 @@
       var ambientLight, light;
       var cameraControls;
       var mesh;
+      var line;
       
       var wireMaterial, flatMaterial;
       
@@ -95,10 +96,14 @@
 				wireMaterial = new THREE.MeshBasicMaterial( { color: 0xFFFFFF, wireframe: true } ) ;
         flatMaterial = new THREE.MeshPhongMaterial( { color: materialColor, specular: 0x000000, flatShading: true, side: THREE.DoubleSide } );
         
+        
+        setupGui();
+        
         //createBox from input width, height, depth
-        mesh = createBox(16*12,38*12,50*12);
-                
+        
       }
+      
+      
       
       function onWindowResize(){
         
@@ -109,6 +114,28 @@
         
       }
       
+      function setupGui(){
+        
+        params = {
+          wide: 16,
+          deep: 40,
+          high: 38,
+        };
+        
+        var h;
+        
+        var gui = new dat.GUI();
+        
+        h = gui.addFolder("Dimensions");
+        
+        h.add(params, "wide", 16.0, 32.0, 0.5).name("Width");
+        h.add(params, "deep", 30.0, 50.0, 0.5).name("Depth");
+        h.add(params, "high", 12.0, 38.0, 0.5).name("Height");
+        
+      }
+      
+      
+      //all parametric elements
       function animate(){
         
         requestAnimationFrame(animate);
@@ -121,6 +148,9 @@
         
         
         renderer.render(scene, camera);
+        
+        //createBox from input width, height, depth
+        createBox(params.wide*12, params.deep*12, params.high*12);
       }
       
       
@@ -129,13 +159,24 @@
       }
       
       function createBox(wide, deep, high){
-        var geometry = new THREE.BoxBufferGeometry(wide, deep, high);
+        
+        if (mesh !== undefined){
+          mesh.geometry.dispose();
+          scene.remove(mesh);
+        }
+        
+        if (line !== undefined){
+          scene.remove(line);
+        }
+        
+        var geometry = new THREE.BoxBufferGeometry(wide, high, deep);
         var edges = new THREE.EdgesGeometry(geometry);
-        var mesh = new THREE.Mesh(geometry, flatMaterial);
-        var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({color:0x4a4a4a}));
+        mesh = new THREE.Mesh(geometry, flatMaterial);
+        line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({color:0x4a4a4a}));
+        
         scene.add(mesh);
         scene.add(line);
-        return mesh;
+       
       }
       
       function createStreet(){
