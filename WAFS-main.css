@@ -1,0 +1,209 @@
+/*horizontal divider*/
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/*arrows*/
+
+.arrow-up-w {
+    cursor: pointer;
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  
+  border-bottom: 8px solid white;
+}
+
+.arrow-down-w {
+    cursor: pointer;
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  
+  border-top: 8px solid white;
+}
+
+.arrow-right-w {
+    cursor: pointer;
+  width: 0; 
+  height: 0; 
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  
+  border-left: 8px solid white;
+}
+
+.arrow-left-w {
+    cursor: pointer;
+  width: 0; 
+  height: 0; 
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent; 
+  
+  border-right:8px solid white; 
+}
+
+/*div layout organization */
+
+.imgWrap {
+    display: inline
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*slider style*/
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 5.8px 0;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.54), 0px 0px 1px rgba(13, 13, 13, 0.54);
+  background: #ffffff;
+  border-radius: 6.5px;
+  border: 0px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1.3px 1.3px 1.8px #000000, 0px 0px 1.3px #0d0d0d;
+  border: 1.7px solid #ffffff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #1e95e9;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5.8px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ffffff;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.54), 0px 0px 1px rgba(13, 13, 13, 0.54);
+  background: #ffffff;
+  border-radius: 6.5px;
+  border: 0px solid #000000;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1.3px 1.3px 1.8px #000000, 0px 0px 1.3px #0d0d0d;
+  border: 1.7px solid #ffffff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #1e95e9;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #f2f2f2;
+  border: 0px solid #000000;
+  border-radius: 13px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.54), 0px 0px 1px rgba(13, 13, 13, 0.54);
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #ffffff;
+  border: 0px solid #000000;
+  border-radius: 13px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.54), 0px 0px 1px rgba(13, 13, 13, 0.54);
+}
+
+input[type=range]::-ms-thumb {
+  box-shadow: 1.3px 1.3px 1.8px #000000, 0px 0px 1.3px #0d0d0d;
+  border: 1.7px solid #ffffff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #1e95e9;
+  cursor: pointer;
+  height: 8.4px;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #ffffff;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #ffffff;
+}
+
+
+/* Toggle switch*/
+.material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 12px;
+    margin-top: -6px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: #c0c0c0;
+    border-radius: 12px;
+    border: 1.7px solid #ffffff;
+    box-shadow: 1.3px 1.3px 1.8px #000000, 0px 0px 1.3px #0d0d0d;
+    content: '';
+    height: 20px;
+    left: -4px;
+    margin-top: -6px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 20px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: #1e95e9;
+    left: 20px;
+}
