@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <title>WA.FS</title>
+        
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css">
+        
+        <!-- WAFS-main CSS -->
+        <link rel ="stylesheet" href="WAFS-main.css">
+        
+    </head>
+    <body>
+        
+        <!-- Place holder, showing results -->
+        <div id="test"></div>
+        
+        <!-- UI canvas -->
+        <div class="h-100 p-4" style="position: absolute;
+                                top:0px;
+                                right:0px;
+                                width: 300px;
+                                background-color: #1e95e9;">
+            
+            <!-- Type input address -->
+            <div id="address-input">
+                <div class="mt-5"></div>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="prop-address" placeholder="Enter Address Here" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            
+            <div class="mt-4"></div>
+            <!-- Choose building type -->
+            <div id="bldg-type-info">
+                <div id="bldg-type-title"><p class="text-white">Building Type</p></div>
+                <div class="wrapper" id="bldg-type-input">
+                    <div class="arrow-left-w mr-3" id="bldg-type-left"></div>
+                    <div style="width: 125px"><p class="text-white" id="bldg-type" style="text-align: center">Attached</p></div>
+                    <div class="arrow-right-w ml-3" id="bldg-type-right"></div>
+                </div>
+            </div>
+            
+            <div class="mt-4"></div>
+            <!-- Story height slider -->
+            <div><p class="text-white">Story</p></div>
+            <div>
+                <input
+                       id="story-num"
+                    type="range"
+                    min="1"                    // default 0
+                    max="3"                  // default 100
+                    step="1"                   // default 1
+                    value="3"                 // default min + (max-min)/2
+                    data-orientation="vertical" // default horizontal
+                >
+            </div>
+            
+            <div class="mt-4"></div>
+            <!-- Rear yard depth slider -->
+            <div><p class="text-white">Rear Yard</p></div>
+            <div>
+                <input
+                       id="rear-yard"
+                    type="range"
+                    min="9"                    // default 0
+                    max="16"                  // default 100
+                    step="1"                   // default 1
+                    value="9"                 // default min + (max-min)/2
+                    data-orientation="vertical" // default horizontal
+                >
+            </div>
+            
+            <div class="mt-5"></div>
+            <!-- Options for roof access and finished basement -->
+            <ul class="list-group" id="extraOptions">
+                <li class="list-group-item">
+                    Roof Access
+                    <div class="material-switch pull-right">
+                        <input id="roofAccess" name="roofAccess" type="checkbox" checked/>
+                        <label for="roofAccess" class="label-default"></label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Finished Basement
+                    <div class="material-switch pull-right">
+                        <input id="finBasement" name="finBasement" type="checkbox" checked/>
+                        <label for="finBasement" class="label-default"></label>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="mt-5"></div>
+            <hr />
+            <div class="mt-3"></div>
+            
+            <!-- Analyze button -->
+            <div class="wrapper">
+                <button type="button" id="form-submit" class="btn btn-secondary btn-block" style="cursor:pointer">Analyze</button>
+            </div>
+            
+        </div>
+        
+        
+        <!-- jQuery, Popper js, Bootstrap js -->
+        <script src="jquery/jquery-3.2.1.min.js"></script>
+        <script src="popper-js/popper.min.js"></script>
+        <script src="bootstrap-4.0.0-beta.2-dist/js/bootstrap.bundle.js"></script>
+        <!-- Load P5 js -->
+        <script src="p5js/p5/p5.min.js"></script>
+        <script src="p5js/p5/addons/p5.dom.min.js"></script>
+        <!-- Load custom script js -->
+        <script src="script/number-to-ordinal.js"></script>
+        <script src="script/main-ui.js"></script>
+        <script src="script/plan-ui.js"></script>
+        
+    </body>
+</html>
