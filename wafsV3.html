@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <title>WA.FS.v3</title>
+        
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="bootstrap-4.0.0-beta.2-dist/css/bootstrap.min.css">
+        
+        <!-- WAFS-main CSS -->
+        <link rel ="stylesheet" href="WAFS-main.css">
+        
+    </head>
+    <body>
+        
+        <!-- Side navigation to show report -->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+            <a href="#">Detailed Report</a>
+            <div id="metaList"></div>
+        </div>
+        
+        <span onclick="openNav()">▶</span>
+        
+        
+        <!-- Place holder, showing results -->
+        <div id="metaList"></div>
+        
+        <!-- Grid hosted floor plans -->
+        <div class="main-grid"></div>
+        
+        <!-- UI canvas -->
+        <div class="h-100 p-4" style="position: absolute;
+                                top:0px;
+                                right:0px;
+                                width: 300px;
+                                background-color: #1e95e9;">
+            
+            <div class="wrapper">
+                <a href="https://dblabsite.wordpress.com/"><img src="images/DBLAB-LOGO.png" alt="DBLAB" height="75" width="130"></a>
+            </div>
+            
+            <!-- Type input address -->
+            <div id="address-input">
+                <div class="mt-5"></div>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="prop-address" placeholder="Enter Address Here" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            
+            <div class="mt-4"></div>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label class="text-white" for="dim-frontage">Frontage</label>
+                    <input class="form-control" id="dim-frontage" type="text" placeholder="(ft)">
+                </div>
+                <div class="col-sm-5">
+                    <label class="text-white" for="dim-depth">Depth</label>
+                    <input class="form-control" id="dim-depth" type="text" placeholder="(ft)">
+                </div>
+            </div>
+            
+            <div class="mt-4"></div>
+            <!-- Choose building type -->
+            <div id="bldg-type-info">
+                <form class="form-inline">
+                    <label class="text-white" for="bldg-type">Building Type</label>
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="bldg-type">
+                        <option selected>Choose...</option>
+                        <option value="1">Attached</option>
+                        <option value="2">Semi-Attached</option>
+                        <option value="3">Detached</option>
+                    </select>
+                </form>
+            </div>
+            <!--
+            <div id="bldg-type-info">
+                <div id="bldg-type-title"><p class="text-white">Building Type</p></div>
+                <div class="wrapper" id="bldg-type-input">
+                    <div class="arrow-left-w mr-3" id="bldg-type-left"></div>
+                    <div style="width: 125px"><p class="text-white" id="bldg-type" style="text-align: center">Attached</p></div>
+                    <div class="arrow-right-w ml-3" id="bldg-type-right"></div>
+                </div>
+            </div>
+        -->
+            
+            <div class="mt-4"></div>
+            <!-- Story height slider -->
+            <div>
+                <label class="text-white" for="story-num">Story</label>
+                <input
+                       id="story-num"
+                    type="range"
+                    min="1"                    // default 0
+                    max="3"                  // default 100
+                    step="1"                   // default 1
+                    value="2"                 // default min + (max-min)/2
+                    data-orientation="vertical" // default horizontal
+                >
+            </div>
+            
+            <div class="mt-4"></div>
+            <!-- Rear yard depth slider -->
+            <div>
+                <label class="text-white" for="rear-yard">Rear Yard</label>
+                <input
+                       id="rear-yard"
+                    type="range"
+                    min="9"                    // default 0
+                    max="16"                  // default 100
+                    step="1"                   // default 1
+                    value="9"                 // default min + (max-min)/2
+                    data-orientation="vertical" // default horizontal
+                >
+            </div>
+            
+            <div class="mt-5"></div>
+            <!-- Options for roof access and finished basement -->
+            <ul class="list-group" id="extraOptions">
+                <li class="list-group-item">
+                    Roof Access
+                    <div class="material-switch pull-right">
+                        <input id="roofAccess" name="roofAccess" type="checkbox" checked/>
+                        <label for="roofAccess" class="label-default"></label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    Finished Basement
+                    <div class="material-switch pull-right">
+                        <input id="finBasement" name="finBasement" type="checkbox" checked/>
+                        <label for="finBasement" class="label-default"></label>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="mt-5"></div>
+            <hr />
+            <div class="mt-3"></div>
+            
+            <!-- Analyze button -->
+            <div class="wrapper">
+                <button type="button" id="form-submit" class="btn btn-secondary btn-block" style="cursor:pointer">Analyze</button>
+            </div>
+            
+        </div>
+        
+        <!-- jQuery, Popper js, Bootstrap js -->
+        <script src="jquery/jquery-3.2.1.min.js"></script>
+        <script src="popper-js/popper.min.js"></script>
+        <script src="bootstrap-4.0.0-beta.2-dist/js/bootstrap.bundle.js"></script>
+        <!-- Load SVG js -->
+        <script src="SVG-js/svg-min.js"></script>
+        <!-- Load custom script js -->
+        <script src="script/my-tool.js"></script>
+        <script src="script/main-ui.js"></script>
+        <script src="script/plan-ui-v3.js"></script>
+        
+        <!-- Side navigation javascript -->
+        <script>
+            /* Set the width of the side navigation to 250px */
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "500px";
+            }
+
+            /* Set the width of the side navigation to 0 */
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            } 
+        </script>
+        
+    </body>
+</html>
