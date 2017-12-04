@@ -1,0 +1,293 @@
+#metaList {
+    position: absolute;
+    z-index: 1;
+    margin: 50px;
+}
+
+/*horizontal divider*/
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/*arrows*/
+
+.arrow-up-w {
+    cursor: pointer;
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  
+  border-bottom: 8px solid white;
+}
+
+.arrow-down-w {
+    cursor: pointer;
+  width: 0; 
+  height: 0; 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  
+  border-top: 8px solid white;
+}
+
+.arrow-right-w {
+    cursor: pointer;
+  width: 0; 
+  height: 0; 
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  
+  border-left: 8px solid white;
+}
+
+.arrow-left-w {
+    cursor: pointer;
+  width: 0; 
+  height: 0; 
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent; 
+  
+  border-right:8px solid white; 
+}
+
+/*div layout organization */
+
+.imgWrap {
+    display: inline
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-grid {
+    width: 100%;
+    padding-right: 350px;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 800px;
+    grid-gap: 0px;
+    background-color: #fff;
+    color: #000;
+}
+
+.grid {
+    background-color: #fff;
+    color: #000;
+    border-style: none;
+    border-width: 1px;
+    border-color: #888;
+    padding: 20px;
+    font-size: 100%;
+}
+
+/*slider style*/
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 5.8px 0;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.54), 0px 0px 1px rgba(13, 13, 13, 0.54);
+  background: #ffffff;
+  border-radius: 6.5px;
+  border: 0px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1.3px 1.3px 1.8px #000000, 0px 0px 1.3px #0d0d0d;
+  border: 1.7px solid #ffffff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #1e95e9;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5.8px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ffffff;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.54), 0px 0px 1px rgba(13, 13, 13, 0.54);
+  background: #ffffff;
+  border-radius: 6.5px;
+  border: 0px solid #000000;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1.3px 1.3px 1.8px #000000, 0px 0px 1.3px #0d0d0d;
+  border: 1.7px solid #ffffff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #1e95e9;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #f2f2f2;
+  border: 0px solid #000000;
+  border-radius: 13px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.54), 0px 0px 1px rgba(13, 13, 13, 0.54);
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #ffffff;
+  border: 0px solid #000000;
+  border-radius: 13px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.54), 0px 0px 1px rgba(13, 13, 13, 0.54);
+}
+
+input[type=range]::-ms-thumb {
+  box-shadow: 1.3px 1.3px 1.8px #000000, 0px 0px 1.3px #0d0d0d;
+  border: 1.7px solid #ffffff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #1e95e9;
+  cursor: pointer;
+  height: 8.4px;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #ffffff;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #ffffff;
+}
+
+
+/* Toggle switch*/
+.material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 12px;
+    margin-top: -6px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: #c0c0c0;
+    border-radius: 12px;
+    border: 1.7px solid #ffffff;
+    box-shadow: 1.3px 1.3px 1.8px #000000, 0px 0px 1.3px #0d0d0d;
+    content: '';
+    height: 20px;
+    left: -4px;
+    margin-top: -6px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 20px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: #1e95e9;
+    left: 20px;
+}
+
+/*Slidenav CSS*/
+ /* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    border-right-style: solid;
+    border-right-width: 2;
+    border-right-color: #1e95e9;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.1s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+} 
