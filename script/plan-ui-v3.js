@@ -130,7 +130,7 @@ function displayFloor(p, f) {
     //set viewbox
     draw.viewbox(0, 0, w, h);
     // draw background
-    var background = draw.rect(w, h).fill("#dde3e1");
+    var background = draw.rect(w, h).fill("#fff");
     
     //create floor plan label and square footage
     var floorInfo = draw.text(f.name + "\n" + f.area + " sqft").font({
